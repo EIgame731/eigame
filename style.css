@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Gameshape';
-  src: url('fonts/Gameshape-Regular.ttf') format('truetype');
+  font-family: 'GameShape';
+  src: url('fonts/GameShape--Regulat.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -28,7 +28,7 @@ body {
   padding: 2px 11px;
   margin: 0 4px;
   font-size: 35px;
-  font-family: 'Gameshape', sans-serif;
+  font-family: 'GameShape', sans-serif;
   font-weight: regular;
   text-decoration: none;
   color: black;
@@ -91,6 +91,4 @@ body {
   font-size: 12px;
   margin-top: 10px;
 }
-
-
 
