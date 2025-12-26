@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Gameshape';
-  src: url('fonts/gameshape.ttf') format('truetype');
+  src: url('fonts/Gameshape-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -91,5 +91,6 @@ body {
   font-size: 12px;
   margin-top: 10px;
 }
+
 
 
