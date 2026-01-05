@@ -67,14 +67,27 @@ document.getElementById("fileInput").onchange = function(e){
   img.src = URL.createObjectURL(file);
 };
 
+var db = firebase.database();
+var storage = firebase.storage();
+
 function postImage(){
   var name = document.getElementById("artistName").value.trim();
   if (!name) return;
 
-  var data = canvas.toDataURL("image/png");
-  var fanarts = JSON.parse(localStorage.getItem("fanarts") || "[]");
-  fanarts.push({ img:data, credit:"By "+name });
-  localStorage.setItem("fanarts", JSON.stringify(fanarts));
+  canvas.toBlob(function(blob){
+    var filename = "fanart_" + Date.now() + ".png";
+    var ref = storage.ref("fanarts/" + filename);
 
-  window.location.href = "fanarts.html";
+    ref.put(blob).then(function(){
+      ref.getDownloadURL().then(function(url){
+        db.ref("fanarts").push({
+          img: url,
+          credit: "By " + name,
+          time: Date.now()
+        });
+
+        window.location.href = "fanarts.html";
+      });
+    });
+  });
 }
