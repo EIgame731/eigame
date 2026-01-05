@@ -1,0 +1,33 @@
+#post-box {
+  width: 860px;
+  margin: auto;
+  background: #fff;
+  padding: 15px;
+}
+
+.top-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+#canvas {
+  border: 3px solid #000;
+  background: #fff;
+}
+
+#preview img {
+  max-width: 780px;
+  max-height: 780px;
+  border: 3px solid #000;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+#postBtn:disabled {
+  background: #888;
+  cursor: not-allowed;
+}

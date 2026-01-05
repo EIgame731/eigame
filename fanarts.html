@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Elgame webpage</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <img src="image/eigame.png" class="logo">
+</header>
+
+<nav class="menu">
+  <a class="main" href="main.html">Return to the Main</a>
+</nav>
+
+<div class="container">
+
+<aside class="sidebar">
+  <h3>Fanarts</h3>
+  <p>All fanarts for Eigame<br>you can post here.</p>
+
+  <h3>Socials</h3>
+  <ul>
+    <li><a href="https://youtube.com/@eigame731?si=doAqWAONUoTlQJcR">YouTube</a></li>
+    <li><a href="https://www.tiktok.com/@eigame731?_r=1&_t=ZS-92DoGlQcp6t">TikTok</a></li>
+    <li><a href="https://www.tiktok.com/@game731_?_r=1&_t=ZS-91O0wvmmZlw">TikTok Alt</a></li>
+    <li><a href="https://discord.gg/uTy97rYeTk">Discord server</a></li>
+    <li><a href="#">Instagram</a></li>
+    <li><a href="#">Twitter</a></li>
+    <li><a href="#">Newgrounds</a></li>
+    <li><a href="#">Spotify</a></li>
+  </ul>
+
+  <h3>Go to the</h3>
+  <ul>
+    <li><a href="main.html">Main</a></li>
+    <li><a href="#">Safety</a></li>
+    <li><a href="#">Privacy</a></li>
+    <li><a href="#">FAQ</a></li>
+    <li><a href="#">Info</a></li>
+    <li><a href="#">Comments</a></li>
+  </ul>
+</aside>
+
+<main class="content">
+  <h1>Fanarts</h1>
+  <button id="postBtn">+ Post</button>
+
+  <div id="fanart-grid" class="grid"></div>
+
+  <div class="pagination">
+    <button onclick="prevPage()"><<</button>
+    <span id="page-info"></span>
+    <button onclick="nextPage()">>></button>
+  </div>
+</main>
+
+</div>
+
+<div id="modal" class="modal" onclick="closeModal()">
+  <img id="modal-img">
+  <p id="modal-credit"></p>
+</div>
+
+<footer>2026 EIgame</footer>
+
+<script src="fanart.js"></script>
+</body>
+</html>

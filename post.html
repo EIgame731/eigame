@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Post Fanart</title>
+<link rel="stylesheet" href="post.css">
+</head>
+
+<body>
+
+<div class="top-bar">
+  <button onclick="setMode('draw')">Draw</button>
+  <button onclick="setMode('import')">Upload</button>
+  <input type="text" id="artistName" placeholder="Type ur name here">
+  <button id="postBtn" disabled onclick="postImage()">Post</button>
+</div>
+
+<div id="draw-area">
+  <canvas id="canvas" width="780" height="780"></canvas>
+  <div>
+    <button onclick="setTool('pen')">Pen</button>
+    <button onclick="setTool('eraser')">Eraser</button>
+    <input type="color" id="color">
+  </div>
+</div>
+
+<div id="import-area" style="display:none;">
+  <input type="file" id="fileInput" accept="image/*">
+</div>
+
+<script src="post.js"></script>
+</body>
+</html>
