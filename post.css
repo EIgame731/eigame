@@ -1,26 +1,12 @@
-body {
-  margin: 0;
-}
-
 .top-bar {
   display: flex;
   gap: 8px;
-  padding: 10px;
-  background: #eee;
-  position: relative;
-  z-index: 10;
+  margin-bottom: 10px;
 }
 
-#draw-area {
-  position: relative;
-}
-
-canvas {
-  display: block;
-  margin: 10px auto;
+#canvas {
   border: 3px solid #000;
   background: #fff;
-  touch-action: none;
 }
 
 button {
