@@ -225,5 +225,14 @@ footer {
   font-size: 18px;
 }
 
+.fanart-thumb {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #000;
+  background: #000;
+}
+
 
 
