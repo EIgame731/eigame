@@ -1,6 +1,5 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-
 var drawing = false;
 var tool = "pen";
 var mode = "draw";
@@ -8,6 +7,7 @@ var mode = "draw";
 ctx.fillStyle = "#fff";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+// ===== MODE =====
 function setMode(m) {
   mode = m;
   document.getElementById("draw-area").style.display =
@@ -16,28 +16,14 @@ function setMode(m) {
     m === "import" ? "block" : "none";
 }
 
-function openUpload() {
-  setMode("import");
-  document.getElementById("fileInput").click();
-}
-
-function getPos(e) {
-  var rect = canvas.getBoundingClientRect();
-  return {
-    x: e.clientX - rect.left,
-    y: e.clientY - rect.top
-  };
-}
-
-/* Pointer events */
-canvas.addEventListener("pointerdown", function (e) {
+// ===== DRAW =====
+canvas.onmousedown = function (e) {
   drawing = true;
   ctx.beginPath();
-  var p = getPos(e);
-  ctx.moveTo(p.x, p.y);
-});
+  ctx.moveTo(e.offsetX, e.offsetY);
+};
 
-canvas.addEventListener("pointermove", function (e) {
+canvas.onmousemove = function (e) {
   if (!drawing) return;
 
   if (tool === "eraser") {
@@ -48,35 +34,32 @@ canvas.addEventListener("pointermove", function (e) {
     ctx.lineWidth = 5;
   }
 
-  var p = getPos(e);
-  ctx.lineTo(p.x, p.y);
+  ctx.lineTo(e.offsetX, e.offsetY);
   ctx.stroke();
-});
+};
 
-canvas.addEventListener("pointerup", stopDraw);
-canvas.addEventListener("pointerleave", stopDraw);
-
-function stopDraw() {
+canvas.onmouseup = canvas.onmouseleave = function () {
   drawing = false;
-}
+};
 
 function setTool(t) {
   tool = t;
 }
 
-/* Enable Post */
+// ===== NAME =====
 document.getElementById("artistName").oninput = function () {
   document.getElementById("postBtn").disabled =
     this.value.trim() === "";
 };
 
-/* Import image */
+// ===== UPLOAD =====
 document.getElementById("fileInput").onchange = function (e) {
   var file = e.target.files[0];
   if (!file) return;
 
   var img = new Image();
   img.onload = function () {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#fff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -96,7 +79,7 @@ document.getElementById("fileInput").onchange = function (e) {
   img.src = URL.createObjectURL(file);
 };
 
-/* Firebase */
+// ===== FIREBASE POST =====
 var db = firebase.database();
 var storage = firebase.storage();
 
@@ -104,12 +87,8 @@ function postImage() {
   var name = document.getElementById("artistName").value.trim();
   if (!name) return;
 
-  document.getElementById("postBtn").disabled = true;
-
   canvas.toBlob(function (blob) {
-    var filename = "fanart_" + Date.now() + ".png";
-    var ref = storage.ref("fanarts/" + filename);
-
+    var ref = storage.ref("fanarts/fanart_" + Date.now() + ".png");
     ref.put(blob).then(function () {
       return ref.getDownloadURL();
     }).then(function (url) {
@@ -120,9 +99,6 @@ function postImage() {
       });
     }).then(function () {
       window.location.href = "fanarts.html";
-    }).catch(function (err) {
-      alert(err.message);
-      document.getElementById("postBtn").disabled = false;
     });
   });
 }
