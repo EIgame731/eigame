@@ -72,16 +72,22 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
 <script>
-var firebaseConfig = {
-  apiKey: "AIzaSyBnyQoublVGkkJoInjaFlAvyS_a28sqB7o",
-  authDomain: "eigame-fanarts.firebaseapp.com",
-  databaseURL: "https://eigame-fanarts-default-rtdb.firebaseio.com",
-  projectId: "eigame-fanarts",
-  storageBucket: "eigame-fanarts.appspot.com"
-};
-firebase.initializeApp(firebaseConfig);
+firebase.database().ref("fanarts").limitToLast(20).on("child_added", function(snap) {
+  var data = snap.val();
+
+  var img = document.createElement("img");
+  img.src = data.img;
+  img.style.maxWidth = "300px";
+
+  var p = document.createElement("p");
+  p.innerText = data.credit;
+
+  document.body.appendChild(img);
+  document.body.appendChild(p);
+});
 </script>
 
 <script src="fanart.js"></script>
 </body>
 </html>
+
