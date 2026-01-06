@@ -9,46 +9,38 @@
 <body>
 
 <div class="top-bar">
-  <button type="button" onclick="setMode('draw')">Draw</button>
-  <button type="button" onclick="openUpload()">Upload</button>
-
+  <button onclick="setMode('draw')">Draw</button>
+  <button onclick="setMode('import')">Upload</button>
   <input type="text" id="artistName" placeholder="Type ur name here">
-
-  <button
-    type="button"
-    id="postBtn"
-    disabled
-    onclick="postImage()"
-  >Post</button>
+  <button id="postBtn" disabled onclick="postImage()">Post</button>
 </div>
 
 <div id="draw-area">
   <canvas id="canvas" width="780" height="780"></canvas>
   <div>
-    <button type="button" onclick="setTool('pen')">Pen</button>
-    <button type="button" onclick="setTool('eraser')">Eraser</button>
+    <button onclick="setTool('pen')">Pen</button>
+    <button onclick="setTool('eraser')">Eraser</button>
     <input type="color" id="color" value="#000000">
   </div>
 </div>
 
 <div id="import-area" style="display:none;">
-  <input type="file" id="fileInput" accept="image/*" style="display:none;">
+  <input type="file" id="fileInput" accept="image/*">
 </div>
 
-<!-- Firebase v8 -->
+<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
 <script>
-var firebaseConfig = {
+firebase.initializeApp({
   apiKey: "AIzaSyBnyQoublVGkkJoInjaFlAvyS_a28sqB7o",
   authDomain: "eigame-fanarts.firebaseapp.com",
   databaseURL: "https://eigame-fanarts-default-rtdb.firebaseio.com",
   projectId: "eigame-fanarts",
   storageBucket: "eigame-fanarts.appspot.com"
-};
-firebase.initializeApp(firebaseConfig);
+});
 </script>
 
 <script src="post.js"></script>
