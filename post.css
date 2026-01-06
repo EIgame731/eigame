@@ -14,6 +14,7 @@
 #canvas {
   border: 3px solid #000;
   background: #fff;
+  touch-action: none;
 }
 
 #preview img {
@@ -31,3 +32,4 @@ button {
   background: #888;
   cursor: not-allowed;
 }
+
