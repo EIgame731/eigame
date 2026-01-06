@@ -86,10 +86,10 @@ function postImage() {
   var name = document.getElementById("artistName").value.trim();
  if (!name) return;
 
-  var data = canvas.toDataURL("image/png");
+  var imgData = canvas.toDataURL("image/png");
 
   firebase.database().ref("fanarts").push({
-    img: Data,
+    img: imgData,
     credit: "By "+ name,
     time: Date.now()
   }, function (error) {
@@ -100,4 +100,5 @@ function postImage() {
     }
   });
 }
+
 
