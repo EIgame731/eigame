@@ -23,6 +23,9 @@ function render(){
   var items = reversed.slice(start, start + perPage);
 
   items.forEach(function(item){
+    var img = document.createElement("div");
+    box.className = "fanart-box";
+    
     var img = document.createElement("img");
     img.src = item.img;
     img.className = "fanart-thumb";
@@ -31,7 +34,8 @@ function render(){
     img.onclick = function(){
       openModal(item.img, item.credit, item.desc);
     };
-
+    
+    box.appendChild(img);
     grid.appendChild(img);
   });
 
@@ -73,3 +77,4 @@ function closeModal(){
 }
 
 render();
+
