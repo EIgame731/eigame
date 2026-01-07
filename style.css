@@ -193,16 +193,25 @@ footer {
   gap: 20px;
 }
 
+/* GRID FANART */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 160px);
+  gap: 20px;
+  justify-content: start;
+}
+
 /* THUMBNAIL */
-.grid img {
+.fanart-thumb {
   width: 160px;
-  height: 160px
+  height: 160px;
 
   object-fit: contain;
   object-position: center;
 
   background: #fff;
   border: 2px solid #000;
+  cursor: pointer;
 }
 
 /* MODAL */
@@ -237,6 +246,7 @@ footer {
   background: #fff;
   border: 2px solid #000;
 }
+
 
 
 
