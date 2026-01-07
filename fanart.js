@@ -29,7 +29,7 @@ function render(){
     img.loading = "lazy";
 
     img.onclick = function(){
-      openModal(item.img, item.credit);
+      openModal(item.img, item.credit, item.desc);
     };
 
     grid.appendChild(img);
@@ -53,10 +53,19 @@ function prevPage(){
   }
 }
 
-function openModal(src, credit){
+function openModal(src, credit, desc){
   document.getElementById("modal").style.display = "block";
   document.getElementById("modal-img").src = src;
-  document.getElementById("modal-credit").innerText = credit;
+
+  var text = "";
+
+  if (desc && desc.trim() !== "") {
+    text += "(" + desc + ")\n";
+  }
+
+  text += credit;
+
+  document.getElementById("modal-credit").innerText = text;
 }
 
 function closeModal(){
@@ -64,4 +73,3 @@ function closeModal(){
 }
 
 render();
-
