@@ -45,7 +45,7 @@ canvas.addEventListener("pointermove", function (e) {
     ctx.lineWidth = 30;
   } else {
     ctx.strokeStyle = document.getElementById("color").value;
-    ctx.lineWidth = 9;
+    ctx.lineWidth = 7;
   }
 
   ctx.lineCap = "round";
@@ -116,6 +116,7 @@ function postImage() {
     }
   });
 }
+
 
 
 
