@@ -196,10 +196,12 @@ footer {
 /* THUMBNAIL */
 .grid img {
   width: 160px;
-  height: 160px;
-  object-fit: cover;     /* ครอปให้อยู่ 1:1 */
-  cursor: pointer;
-  background: #000;
+  height: 160px
+
+  object-fit: contain;
+  object-position: center;
+
+  background: #fff;
   border: 2px solid #000;
 }
 
@@ -228,12 +230,10 @@ footer {
 .fanart-thumb {
   width: 160px;
   height: 160px;
-
-  object-fit: contain;
-  object-position: center; 
-
-  background: #000;
+  object-fit: cover;
+  cursor: pointer;
   border: 2px solid #000;
+  background: #000;
 }
 
 
