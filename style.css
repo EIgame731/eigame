@@ -186,27 +186,27 @@ footer {
   outline: 3px solid black;
 }
 
-/* GRID */
+/* GRID FANART */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 160px);
+  grid-template-columns: repeat(auto-fill, 160px); /* 🔥 สำคัญ */
   gap: 20px;
 }
 
-/* 🔲 กรอบ */
+/* กรอบ */
 .fanart-box {
   width: 160px;
   height: 160px;
   border: 2px solid #000;
   background: #fff;
-  overflow: hidden;   /* 🔥 ตัวนี้แหละ */
+  overflow: hidden;
 }
 
-/* 🖼 รูป */
+/* รูป */
 .fanart-thumb {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* 🔥 บังคับเต็มกรอบ */
+  object-fit: cover;      /* 🔥 เต็มกรอบ */
   object-position: center;
   display: block;
   cursor: pointer;
@@ -233,6 +233,7 @@ footer {
   margin-top: 10px;
   font-size: 18px;
 }
+
 
 
 
