@@ -17,3 +17,7 @@ button {
   background: #888;
   cursor: not-allowed;
 }
+
+#artDesc {
+  width: 220px;
+}
