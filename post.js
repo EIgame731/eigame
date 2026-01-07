@@ -95,6 +95,8 @@ document.getElementById("fileInput").onchange = function(e){
 // ===== POST =====
 function postImage() {
   var name = document.getElementById("artistName").value.trim();
+  var desc = document.getElementById("artDesc").value.trim();
+  
   if (!name) {
     alert("Please enter your name");
     return;
@@ -114,6 +116,7 @@ function postImage() {
     }
   });
 }
+
 
 
 
