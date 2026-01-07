@@ -1,6 +1,5 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-
 var drawing = false;
 var tool = "pen";
 var mode = "draw";
@@ -10,6 +9,14 @@ canvas.style.touchAction = "none";
 // พื้นหลังขาว
 ctx.fillStyle = "#fff";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+function setMode(m) {
+  mode = m;
+  document.getElementById("draw-area").style.display =
+    m === "draw" ? "block" : "none";
+  document.getElementById("import-area").style.display =
+    m === "import" ? "block" : "none";
+}
 
 // 🔹 ตำแหน่ง pointer (เมาส์ / ปากกา / นิ้ว)
 function getPos(e) {
@@ -38,7 +45,7 @@ canvas.addEventListener("pointermove", function (e) {
     ctx.lineWidth = 30;
   } else {
     ctx.strokeStyle = document.getElementById("color").value;
-    ctx.lineWidth = 5;
+    ctx.lineWidth = 18;
   }
 
   ctx.lineCap = "round";
@@ -107,5 +114,6 @@ function postImage() {
     }
   });
 }
+
 
 
