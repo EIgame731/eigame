@@ -199,7 +199,7 @@ footer {
   width: 160px;
   height: 160px;
 
-  object-fit: contain;
+  object-fit: cover;        /* ← จุดสำคัญ */
   object-position: center;
 
   background: #fff;
@@ -228,6 +228,7 @@ footer {
   margin-top: 10px;
   font-size: 18px;
 }
+
 
 
 
